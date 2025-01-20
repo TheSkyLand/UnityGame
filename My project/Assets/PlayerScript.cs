@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float PlayerSpeed = 10.0F;
+    public float PlayerSpeed = 5.0F;
     public float horizontalSpeed = 1.0F;
     public float verticalSpeed = 1.0F;
-    public float MaxSpeed = 20.0F;
+    public float MaxSpeed = 7.5F;
+    
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
