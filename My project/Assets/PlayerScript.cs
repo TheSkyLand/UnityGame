@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour
     public float PlayerSpeed = 5.0F;
     public float horizontalSpeed = 1.0F;
     public float verticalSpeed = 1.0F;
-    public float MaxSpeed = 7.5F;
+    public float MaxSpeed = 10F;
     
     // Start is called before the first frame update
     void Start()
