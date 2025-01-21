@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public float MaxPlayerHealth = 1000;
+    public float PlayerHealth = 100;
     public float PlayerSpeed = 5.0F;
     public float horizontalSpeed = 1.0F;
     public float verticalSpeed = 1.0F;
@@ -90,6 +92,11 @@ public class PlayerScript : MonoBehaviour
         {
             float h = horizontalSpeed * Input.GetAxis("Mouse X");
             transform.Rotate(0, h, 0);
+        }
+
+        if (PlayerHealth == 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
