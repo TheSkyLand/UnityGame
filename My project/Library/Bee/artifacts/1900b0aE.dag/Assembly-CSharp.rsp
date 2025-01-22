@@ -401,10 +401,10 @@
 -analyzer:"D:/UnityAbaunda/Editor/6000.0.33f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"D:/UnityAbaunda/Editor/6000.0.33f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/AttackScript.cs"
-"Assets/Data.cs"
 "Assets/EnemyScript.cs"
-"Assets/NewBehaviourScript.cs"
 "Assets/PlayerScript.cs"
+"Assets/ProjectilScript.cs"
+"Assets/RangedAttack.cs"
 "Assets/Script.cs"
 "Assets/WeaponScript.cs"
 -langversion:9.0

@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class EnemyScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        float EnemyHpCalc = EnemyHp = (EnemyLevel * 2.5F);
+        
     }
 
     // Update is called once per frame
@@ -18,15 +19,7 @@ public class EnemyScript : MonoBehaviour
         if (EnemyHp <= 0)
         {
             Debug.Log("The Enemy Has died");
-            Destroy(gameObject);
-            
-            if (gameObject.IsDestroyed() == true)
-            {
-
-
-                Debug.Log("uhhhh tii");
-            }
-
+            Destroy(this.gameObject);
         }
     }
 }
