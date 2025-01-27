@@ -12,6 +12,7 @@ public class RangedAttack : MonoBehaviour
     void Start()
     {
         GetComponent<EnemyScript>();
+
     }
 
     // Update is called once per frame
