@@ -21,6 +21,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(PlayerHealth);
         // forward movement + pressing W
         if (Input.GetKey(KeyCode.W))
         {
@@ -94,7 +95,7 @@ public class PlayerScript : MonoBehaviour
             transform.Rotate(0, h, 0);
         }
 
-        if (PlayerHealth == 0)
+        if (PlayerHealth <= 0)
         {
             Destroy(gameObject);
         }

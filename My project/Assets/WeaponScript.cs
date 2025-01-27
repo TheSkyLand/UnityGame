@@ -10,21 +10,19 @@ public class WeaponScript : MonoBehaviour
     public float AttackSpeed = 1000.0f;
     // public GameObject b;
     public EnemyScript script;
-    public GameObject trigger;
     //public AttackScript scriptAttack;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //scriptAttack = b.GetComponent<AttackScript>();
         var Enemy = GameObject.FindGameObjectWithTag("Enemy");
-        var script = Enemy.GetComponent<EnemyScript>();
+        Enemy.GetComponent<EnemyScript>();
     }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            OnTriggerEnter(trigger);
             // transform.localRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Mathf.Clamp(transform.rotation.z, -15, 15));
             // transform.rotation = Quaternion.Euler(new Vector3(Mathf.Sin(Time.time * AttackSpeed) * AttackSpeed, 0, 1));
             // transform.Rotate(Vector3.up, AttackSpeed * Time.deltaTime);
