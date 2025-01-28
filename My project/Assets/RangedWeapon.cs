@@ -26,10 +26,10 @@ public class RangedAttack : MonoBehaviour
         }
 
     }
-    void OnTriggerEnter(Collider trigger)
+    void OnTriggerEnter(Collider p)
     {
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
-        if (trigger.gameObject.CompareTag("Enemy"))
+        if (p.gameObject.CompareTag("Enemy"))
         {
             //If the GameObject has the same tag as specified, output this message in the console
             Debug.Log("Do something else here");
