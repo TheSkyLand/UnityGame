@@ -14,9 +14,6 @@ public class WeaponScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //scriptAttack = b.GetComponent<AttackScript>();
-        var Enemy = GameObject.FindGameObjectWithTag("Enemy");
-        Enemy.GetComponent<EnemyScript>();
     }
     // Update is called once per frame
     void Update()
@@ -39,8 +36,7 @@ public class WeaponScript : MonoBehaviour
         {
             //If the GameObject has the same tag as specified, output this message in the console
             Debug.Log("Do something else here");
-            Debug.Log(script.EnemyHp);
-            script.EnemyHp -= BaseDamage;
+            Debug.Log(;
         }
     }
 

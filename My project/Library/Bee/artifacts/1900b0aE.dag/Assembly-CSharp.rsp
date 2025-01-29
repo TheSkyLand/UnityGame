@@ -401,6 +401,7 @@
 -analyzer:"D:/UnityAbaunda/Editor/6000.0.33f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"D:/UnityAbaunda/Editor/6000.0.33f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/AttackScript.cs"
+"Assets/DetectionScript.cs"
 "Assets/EnemyAttack.cs"
 "Assets/EnemyScript.cs"
 "Assets/PlayerScript.cs"

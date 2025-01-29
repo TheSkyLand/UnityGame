@@ -12,7 +12,7 @@ public class RangedAttack : MonoBehaviour
     void Start()
     {
         GetComponent<EnemyScript>();
-
+        GetComponent<Rigidbody>();  
     }
 
     // Update is called once per frame
@@ -26,10 +26,10 @@ public class RangedAttack : MonoBehaviour
         }
 
     }
-    void OnTriggerEnter(Collider p)
+    void OnTriggerEnter(Collider trigger)
     {
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
-        if (p.gameObject.CompareTag("Enemy"))
+        if (trigger.gameObject.name.Contains("Enemy"))
         {
             //If the GameObject has the same tag as specified, output this message in the console
             Debug.Log("Do something else here");
