@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 using static UnityEngine.GraphicsBuffer;
 
 public class WeaponScript : MonoBehaviour
@@ -31,12 +32,16 @@ public class WeaponScript : MonoBehaviour
     }
     void OnTriggerEnter(Collider trigger)
     {
+
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
-        if (trigger.gameObject.name.Contains("Enemy"))
+        if (trigger.tag == "Enemy")
         {
-            //If the GameObject has the same tag as specified, output this message in the console
-            Debug.Log("Do something else here");
-            Debug.Log(;
+
+  
+                Destroy(trigger.gameObject);
+                Destroy(trigger.GetComponent<EnemyScript>());
+                Debug.Log("Do something else here");
+            
         }
     }
 

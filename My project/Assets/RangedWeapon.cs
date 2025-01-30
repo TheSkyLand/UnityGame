@@ -1,13 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
-public class RangedAttack : MonoBehaviour
+public class RangedWeapon : MonoBehaviour
 {
     public float BaseDamage = 1;
-    public float ProjectileSpeed = 1;
     public float AttackSpeed = 1;
     public EnemyScript script;
-    public Rigidbody Projectile;
+    [SerializeField] GameObject Projectile;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,21 +19,7 @@ public class RangedAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Rigidbody p = Instantiate(Projectile, transform.position, transform.rotation);
-            p.linearVelocity = transform.forward * ProjectileSpeed;
-            Destroy(p.gameObject, 1);
-        }
-
-    }
-    void OnTriggerEnter(Collider trigger)
-    {
-        //Check for a match with the specific tag on any GameObject that collides with your GameObject
-        if (trigger.gameObject.name.Contains("Enemy"))
-        {
-            //If the GameObject has the same tag as specified, output this message in the console
-            Debug.Log("Do something else here");
-            Debug.Log(script.EnemyHp);
-            script.EnemyHp -= BaseDamage;
+           Destroy(Instantiate(Projectile, transform.position, transform.rotation), 1);
         }
     }
 }

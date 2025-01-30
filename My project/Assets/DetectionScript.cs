@@ -18,9 +18,5 @@ public class DetectionScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
-        if (gameObject.name.Contains("Player"))
-        {
-            Enemy.transform.position = Vector3.MoveTowards(transform.position, target.position, Enemy.speed * Time.deltaTime);
-        }
     }
 }

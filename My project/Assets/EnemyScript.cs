@@ -4,22 +4,43 @@ using UnityEngine.SocialPlatforms;
 
 public class EnemyScript : MonoBehaviour
 {
-    public float EnemyLevel = 1;
-    public float EnemyHp = 1;
-    public float speed = 1;
-    public GameObject Enemy;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    protected int demage; // количество урона игроку
+    protected int health; // количество жизней у врага
+    protected GameObject player; // объект игрока
+    bool dead = false; // живой ли враг
+
+    // Функция для движения врага (виртуальная), то есть дочерний скрипт будет изменять данный метод
+    public virtual void Move() { }
+
+    // Метод для опеределения атаки врага, настраивается в дочернем классе (наследование)
+    public virtual void Attack() { }
+
+    // Публичный метод для изменения состояния врага (жив/мертв), можем обращаться к этому методу
+    // с других скриптов, но изменять в дочерни классах не можем!
+    public void OnDeath()
+    {
+        dead = true;
+        // Изменение анимации при попадания по врагу
+        GetComponent<Animator>().SetBool("death", true);
+        // Отключение вращения врага, после смерти
+        GetComponent<CharacterController>().enabled = false;
+    }
+
+    // Start is called before the first frame update
     void Start()
     {
+        // Находим главного персонажа по скррипту, который к нему прикреплён
+        //player = FindObjectOfType<PlayerMove>().gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (EnemyHp <= 0)
+        // Если враг жив (не мёртв)
+        if (!dead)
         {
-            Debug.Log("The Enemy Has died");
-            Destroy(this.gameObject);
+            Move();
+            Attack();
         }
     }
 }

@@ -405,6 +405,7 @@
 "Assets/EnemyAttack.cs"
 "Assets/EnemyScript.cs"
 "Assets/PlayerScript.cs"
+"Assets/ProjectileScript.cs"
 "Assets/RangedWeapon.cs"
 "Assets/Script.cs"
 "Assets/WeaponScript.cs"
