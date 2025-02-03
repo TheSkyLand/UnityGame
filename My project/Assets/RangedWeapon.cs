@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RangedWeapon : MonoBehaviour
@@ -7,19 +8,35 @@ public class RangedWeapon : MonoBehaviour
     public float AttackSpeed = 1;
     public EnemyScript script;
     [SerializeField] GameObject Projectile;
+    protected bool auto = false;
+    // Интервал между выстрелами
+    protected float cooldown = 0;
+    // Время выстрела (закрытая)
+    private float timer = 0;
+    protected virtual void OnShoot() { }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GetComponent<EnemyScript>();
-        GetComponent<Rigidbody>();  
+        GetComponent<Rigidbody>();
+        cooldown = timer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        timer += Time.deltaTime;
+    }
+    public void Shoot()
+    {
+        if (Input.GetMouseButtonDown(0) || auto)
         {
-           Destroy(Instantiate(Projectile, transform.position, transform.rotation), 1);
+            // Если время выстрела превышает интервал
+            if (timer > cooldown)
+            {
+                OnShoot();
+                timer = 0;
+            }
         }
     }
 }

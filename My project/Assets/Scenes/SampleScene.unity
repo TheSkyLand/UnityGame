@@ -263,6 +263,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5bf139e7fcfaa4bb24c3a3afb68d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &998365699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998365674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac321b738e2924fac937957972f8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bow: {fileID: 0}
+  Sword: {fileID: 0}
 --- !u!1 &1102964510
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +454,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1843658315022075396, guid: 60d3c49204c786349b3b19e5c2aa38d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 998365699}
     - targetCorrespondingSourceObject: {fileID: 4256468262310163073, guid: 60d3c49204c786349b3b19e5c2aa38d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 594494623}
