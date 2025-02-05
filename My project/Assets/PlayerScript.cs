@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -12,7 +13,13 @@ public class PlayerScript : MonoBehaviour
     public float horizontalSpeed = 1.0F;
     public float verticalSpeed = 1.0F;
     public float MaxSpeed = 10F;
-    
+    public GameObject cursor;
+
+    public void changeHpBux(int i)
+    {
+        
+        PlayerHealth -= i;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -67,11 +74,11 @@ public class PlayerScript : MonoBehaviour
             Debug.Log("the A key has been released");
         }
 
-        if (Input.GetMouseButtonDown(0))   
+         /* if (Input.GetMouseButtonDown(0))   
         {
             Cursor.lockState = CursorLockMode.Locked;
             Debug.Log("Left mouse button locked");
-        }
+        } */
 
         if (Input.GetKey(KeyCode.LeftShift)) {
             // Set current speed to run if shift is down
@@ -87,13 +94,14 @@ public class PlayerScript : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Debug.Log("Left mouse button unlocked");
-        }   
-
+        }
+        /*
         if (Cursor.lockState == CursorLockMode.Locked)
         {
             float h = horizontalSpeed * Input.GetAxis("Mouse X");
-            transform.Rotate(0, h, 0);
-        }
+            
+        } */
+        transform.LookAt(cursor.transform.position);
 
         if (PlayerHealth <= 0)
         {

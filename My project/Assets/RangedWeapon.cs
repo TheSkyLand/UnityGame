@@ -8,6 +8,7 @@ public class RangedWeapon : MonoBehaviour
     public float AttackSpeed = 1;
     public EnemyScript script;
     [SerializeField] GameObject Projectile;
+    [SerializeField] GameObject ProjectileStart;
     protected bool auto = false;
     // Интервал между выстрелами
     protected float cooldown = 0;
@@ -26,17 +27,28 @@ public class RangedWeapon : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-    }
-    public void Shoot()
-    {
         if (Input.GetMouseButtonDown(0) || auto)
         {
+            GameObject projectile = Instantiate(Projectile);
+            Destroy(projectile, 1);
+            projectile.GetComponent<ProjectileScript>().setDirection(transform.forward);
             // Если время выстрела превышает интервал
+
+            // Задаём начальное положение пули на карте - начало в новом пустом объекте unity rifleStart, его положение
+            // ! Важно определить объекты в unity, иначе будет ошибка
+            projectile.transform.position = ProjectileStart.transform.position;
+            // Положение (Угол) пули относительно положения угла наклона оружия
+            projectile.transform.rotation = transform.rotation;
+
             if (timer > cooldown)
             {
                 OnShoot();
                 timer = 0;
             }
         }
+    }
+    public void Shoot()
+    {
+
     }
 }

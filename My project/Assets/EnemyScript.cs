@@ -14,7 +14,10 @@ public class EnemyScript : MonoBehaviour
 
     // Метод для опеределения атаки врага, настраивается в дочернем классе (наследование)
     public virtual void Attack() { }
-
+    public void changeHpBux(int i)
+    {
+        health  -= i;
+    }
     // Публичный метод для изменения состояния врага (жив/мертв), можем обращаться к этому методу
     // с других скриптов, но изменять в дочерни классах не можем!
     public void OnDeath()
