@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 using static UnityEngine.GraphicsBuffer;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float MaxPlayerHealth = 1000;
-    public float PlayerHealth = 100;
+    public float MaxPlayerHealth = 1000F;
+    public float PlayerHealth = 100F;
     public float PlayerSpeed = 5.0F;
     public float horizontalSpeed = 1.0F;
     public float verticalSpeed = 1.0F;
     public float MaxSpeed = 10F;
     public GameObject cursor;
+    public Transform cursorPos;
 
-    public void changeHpBux(int i)
+    public void changeHpBux(float i)
     {
         
         PlayerHealth -= i;
@@ -74,11 +76,11 @@ public class PlayerScript : MonoBehaviour
             Debug.Log("the A key has been released");
         }
 
-         /* if (Input.GetMouseButtonDown(0))   
+        if (Input.GetMouseButtonDown(0))   
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Confined;
             Debug.Log("Left mouse button locked");
-        } */
+        } 
 
         if (Input.GetKey(KeyCode.LeftShift)) {
             // Set current speed to run if shift is down
@@ -101,7 +103,11 @@ public class PlayerScript : MonoBehaviour
             float h = horizontalSpeed * Input.GetAxis("Mouse X");
             
         } */
-        transform.LookAt(cursor.transform.position);
+
+
+        var playerPos = cursor.transform.position;
+        playerPos.y = transform.position.y;
+        transform.LookAt(playerPos);
 
         if (PlayerHealth <= 0)
         {

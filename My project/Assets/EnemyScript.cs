@@ -1,19 +1,16 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
 public class EnemyScript : MonoBehaviour
 {
-    protected int demage; // количество урона игроку
-    protected int health; // количество жизней у врага
+    protected float damage; // количество урона игроку
+    protected float health; // количество жизней у врага
     protected GameObject player; // объект игрока
     bool dead = false; // живой ли враг
 
     // Функция для движения врага (виртуальная), то есть дочерний скрипт будет изменять данный метод
-    public virtual void Move() { }
-
-    // Метод для опеределения атаки врага, настраивается в дочернем классе (наследование)
-    public virtual void Attack() { }
     public void changeHpBux(int i)
     {
         health  -= i;
@@ -39,11 +36,23 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Если враг жив (не мёртв)
-        if (!dead)
+    }
+    private void OnTriggerEnter(Collider player)
+    {
+        if (player.tag == "GameController")
         {
-            Move();
             Attack();
         }
+    }
+    public virtual void Attack()
+    {
+        StartCoroutine(Attackf());
+        Debug.Log("worked");
+    }
+    private IEnumerator Attackf()
+    {
+        Debug.Log("worked");
+        player.GetComponent<PlayerScript>().changeHpBux(-20);
+        yield return new WaitForSeconds(1);
     }
 }

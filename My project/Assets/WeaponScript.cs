@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -15,12 +16,14 @@ public class WeaponScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
     }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            //Attack();
             // transform.localRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Mathf.Clamp(transform.rotation.z, -15, 15));
             // transform.rotation = Quaternion.Euler(new Vector3(Mathf.Sin(Time.time * AttackSpeed) * AttackSpeed, 0, 1));
             // transform.Rotate(Vector3.up, AttackSpeed * Time.deltaTime);
@@ -28,6 +31,7 @@ public class WeaponScript : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
+            //gameObject.SetActive(true);
         }
     }
     void OnTriggerEnter(Collider trigger)
@@ -45,4 +49,16 @@ public class WeaponScript : MonoBehaviour
         }
     }
 
+    public void Attack()
+    {
+        StartCoroutine(Attackf());
+        Debug.Log("worked");
+    }
+    private IEnumerator Attackf()
+    {
+        Debug.Log("worked");
+        gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        gameObject.SetActive(false);
+    }
 }

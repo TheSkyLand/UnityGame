@@ -133,10 +133,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!1 &2869688678948332715
 GameObject:
@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 6235666515007110205}
   - component: {fileID: 5102083435707356803}
   - component: {fileID: 4783140587264652742}
+  - component: {fileID: 2308080600870214392}
   m_Layer: 0
   m_Name: RangedWeapon
   m_TagString: Untagged
@@ -188,6 +189,7 @@ MonoBehaviour:
   AttackSpeed: 1
   script: {fileID: 0}
   Projectile: {fileID: 1952533026322238003}
+  ProjectileStart: {fileID: 0}
 --- !u!54 &4783140587264652742
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -213,5 +215,21 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!138 &2308080600870214392
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2869688678948332715}
+  serializedVersion: 1
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1

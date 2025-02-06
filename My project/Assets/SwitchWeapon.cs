@@ -30,12 +30,12 @@ public class SwitchWeapon : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            ChooseWeapon("Пистолет");
+            ChooseWeapon("Bow");
             weapon = 1;
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {
-            ChooseWeapon("Автомат");
+            ChooseWeapon("Sword");
             weapon = 2;
         }
         if (Input.GetMouseButton(0))
