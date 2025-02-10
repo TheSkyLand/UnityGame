@@ -21,16 +21,14 @@ public class ProjectileScript : MonoBehaviour
     {
         transform.position += ProjectileDirection * ProjectileSpeed * Time.deltaTime;
     }
-    void OnTriggerEnter(Collider trigger)
+    void OnTriggerEnter(Collider Enemy)
     {
 
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
-        if (trigger.tag == "Enemy")
+        if (Enemy.tag == "Enemy")
         {
             // If the GameObject has the same tag as specified, output this message in the console  
-               Destroy(trigger.gameObject);
-               Destroy(trigger.GetComponent<EnemyScript>());
-               Debug.Log("Do something else here");
+            Enemy.GetComponent<EnemyScript>().changeHpBux(+20);
         }        
     }
 }

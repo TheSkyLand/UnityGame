@@ -26,29 +26,24 @@ public class RangedWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) || auto)
-        {
-            GameObject projectile = Instantiate(Projectile);
-            Destroy(projectile, 1);
-            projectile.GetComponent<ProjectileScript>().setDirection(transform.forward);
-            // Если время выстрела превышает интервал
-
-            // Задаём начальное положение пули на карте - начало в новом пустом объекте unity rifleStart, его положение
-            // ! Важно определить объекты в unity, иначе будет ошибка
-            projectile.transform.position = ProjectileStart.transform.position;
-            // Положение (Угол) пули относительно положения угла наклона оружия
-            projectile.transform.rotation = transform.rotation;
-
-            if (timer > cooldown)
-            {
-                OnShoot();
-                timer = 0;
-            }
-        }
     }
     public void Shoot()
     {
+        GameObject projectile = Instantiate(Projectile);
+        Destroy(projectile, 1);
+        projectile.GetComponent<ProjectileScript>().setDirection(transform.forward);
+        // Если время выстрела превышает интервал
 
+        // Задаём начальное положение пули на карте - начало в новом пустом объекте unity rifleStart, его положение
+        // ! Важно определить объекты в unity, иначе будет ошибыка
+        projectile.transform.position = ProjectileStart.transform.position;
+        // Положение (Угол) пули относительно положения угла наклона оружия
+        projectile.transform.rotation = transform.rotation;
+
+        if (timer > cooldown)
+        {
+            OnShoot();
+            timer = 1;
+        }
     }
 }

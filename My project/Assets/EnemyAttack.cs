@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using System.Collections;
+
 public class EnemyAttack : MonoBehaviour
 {
     public float BaseDamage = 50;
@@ -16,15 +18,22 @@ public class EnemyAttack : MonoBehaviour
     {
         
     }
-    void OnTriggerEnter(Collider trigger)
+    private void OnTriggerEnter(Collider player)
     {
-        //Check for a match with the specific tag on any GameObject that collides with your GameObject
-        if (trigger.gameObject.name.Contains("Character"))
+        if (player.tag == "GameController")
         {
-            //If the GameObject has the same tag as specified, output this message in the console
-            Debug.Log("Do something else here");
-            Debug.Log(Player.PlayerHealth);
-            Player.PlayerHealth -= BaseDamage;
+            Attack();
         }
+    }
+    public virtual void Attack()
+    {
+        StartCoroutine(Attackf());
+        Debug.Log("worked");
+    }
+    private IEnumerator Attackf()
+    {
+        Debug.Log("worked");
+        Player.GetComponent<PlayerScript>().changeHpBux(+20);
+        yield return new WaitForSeconds(1);
     }
 }

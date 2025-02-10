@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="HealthBar" style="flex-grow: 1; position: absolute; height: 150px; width: 500px; top: 0; left: 0; right: 0; bottom: 0; background-image: url(&quot;project://database/Assets/l1_sprite_1.png?fileID=2800000&amp;guid=1f9f424c73979fc4993139d19fe42960&amp;type=3#l1_sprite_1&quot;);">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/l3_sprite_1.png?fileID=2800000&amp;guid=065d1070f03c39248aad3b147801165f&amp;type=3#l3_sprite_1&quot;); height: 65px; width: 498px; -unity-background-scale-mode: stretch-to-fill; background-position-y: center 0; background-position-x: center 0;" />
+    </ui:VisualElement>
+</ui:UXML>

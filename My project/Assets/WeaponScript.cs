@@ -21,31 +21,15 @@ public class WeaponScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            //Attack();
-            // transform.localRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Mathf.Clamp(transform.rotation.z, -15, 15));
-            // transform.rotation = Quaternion.Euler(new Vector3(Mathf.Sin(Time.time * AttackSpeed) * AttackSpeed, 0, 1));
-            // transform.Rotate(Vector3.up, AttackSpeed * Time.deltaTime);
-            Debug.Log("Attack initialized");
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            //gameObject.SetActive(true);
-        }
     }
-    void OnTriggerEnter(Collider trigger)
+    void OnTriggerEnter(Collider Enemy)
     {
 
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
-        if (trigger.tag == "Enemy")
+        if (Enemy.tag == "Enemy")
         {
-
-  
-                Destroy(trigger.gameObject);
-                Destroy(trigger.GetComponent<EnemyScript>());
-                Debug.Log("Do something else here");
-            
+            // If the GameObject has the same tag as specified, output this message in the console  
+            Enemy.GetComponent<EnemyScript>().changeHpBux(+BaseDamage);
         }
     }
 
