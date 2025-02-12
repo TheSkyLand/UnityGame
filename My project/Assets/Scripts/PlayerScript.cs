@@ -16,7 +16,8 @@ public class PlayerScript : MonoBehaviour
     public float MaxSpeed = 10F;
     public GameObject cursor;
     public Transform cursorPos;
-
+    public GameObject Player;
+    public bool IsDead = false;
     public void changeHpBux(float i)
     {
         
@@ -30,41 +31,46 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Player != IsDead)
         {
-            transform.position += transform.forward * PlayerSpeed * Time.deltaTime;
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.position += transform.forward * PlayerSpeed * Time.deltaTime;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.position -= transform.forward * PlayerSpeed * Time.deltaTime;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.position += transform.right * PlayerSpeed * Time.deltaTime;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.position -= transform.right * PlayerSpeed * Time.deltaTime;
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+                Debug.Log("Left mouse button locked");
+            }
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                // Set current speed to run if shift is down
+                PlayerSpeed = MaxSpeed;
+            }
+            else
+            {
+                // Otherwise set current speed to walking speed
+                PlayerSpeed = 5f;
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad7))
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Debug.Log("Left mouse button unlocked");
+            }
         }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position -= transform.forward * PlayerSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += transform.right * PlayerSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position -= transform.right * PlayerSpeed  * Time.deltaTime;
-        }
-        if (Input.GetMouseButtonDown(0))   
-        {
-            Cursor.lockState = CursorLockMode.Confined;
-            Debug.Log("Left mouse button locked");
-        } 
-        if (Input.GetKey(KeyCode.LeftShift)) {
-            // Set current speed to run if shift is down
-            PlayerSpeed = MaxSpeed;
-        }
-        else
-        {
-            // Otherwise set current speed to walking speed
-            PlayerSpeed = 5f;
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad7))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Debug.Log("Left mouse button unlocked");
-        }
+
 
 
         var playerPos = cursor.transform.position;
@@ -74,6 +80,7 @@ public class PlayerScript : MonoBehaviour
         if (PlayerHealth <= 0)
         {
             Destroy(gameObject);
+            IsDead = true;
         }
     }
 }

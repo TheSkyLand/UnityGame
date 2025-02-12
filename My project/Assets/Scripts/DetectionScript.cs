@@ -34,15 +34,16 @@ public class DetectionScript : MonoBehaviour
             }
         }
     }
-    private void OnTriggerExit(Collider player)
+    private void OnTriggerStay(Collider player)
     {
-        if (player.tag == "GameController")
-        {
-            StopAllCoroutines();
-        }
-        else
         {
             StartCoroutine(FollowPlayer());
+        }
+    }
+    private void OnTriggerExit(Collider player)
+    {
+        {
+            StopCoroutine(FollowPlayer());
         }
     }
 
@@ -51,7 +52,7 @@ public class DetectionScript : MonoBehaviour
         var playerPos = player.transform.position;
         playerPos.y = transform.position.y;
         enemy.transform.LookAt(playerPos);
-        Debug.Log("worked");
+        enemy.transform.position += enemy.transform.forward * 2f * Time.deltaTime;
         yield return new WaitForSeconds(1);
         Debug.Log("worked1");
     }

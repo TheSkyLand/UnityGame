@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638749353514480455
+      ticks: 638749482469367914
     m_Hash: 1101263996
   m_LockFileStatus:
     m_FilePath: D:/UnityGame/My project/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638749353514480455
+      ticks: 638749482469367914
     m_Hash: 3230201621
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -903,7 +903,6 @@ m_ResolvedPackages:
     - 1.7.6
     - 1.7.7
     - 1.7.8
-    - 1.8.0-pre.1
     - 1.8.0
     - 1.9.0
     - 1.9.1
@@ -913,8 +912,7 @@ m_ResolvedPackages:
     compatible:
     - 1.9.5
     recommended: 1.9.5
-    deprecated:
-    - 1.8.0-pre.1
+    deprecated: []
   dependencies:
   - name: com.unity.ugui
     version: 1.0.0
