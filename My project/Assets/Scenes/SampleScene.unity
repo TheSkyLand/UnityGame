@@ -587,9 +587,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxPlayerHealth: 1000
   PlayerHealth: 100
-  PlayerSpeed: 5
-  horizontalSpeed: 1
-  verticalSpeed: 1
+  PlayerSpeed: 10
+  horizontalSpeed: 2
+  verticalSpeed: 2
   MaxSpeed: 10
   cursor: {fileID: 159742092}
   cursorPos: {fileID: 159742093}
@@ -1273,19 +1273,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6247074170888832162, guid: 224fd9ee8a95d3a4eac644f29c666642, type: 3}
       propertyPath: m_LocalScale.x
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6247074170888832162, guid: 224fd9ee8a95d3a4eac644f29c666642, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.0016004528
       objectReference: {fileID: 0}
     - target: {fileID: 6247074170888832162, guid: 224fd9ee8a95d3a4eac644f29c666642, type: 3}
       propertyPath: m_LocalScale.z
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6247074170888832162, guid: 224fd9ee8a95d3a4eac644f29c666642, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.00000047684
       objectReference: {fileID: 0}
     - target: {fileID: 7371452616243879116, guid: 224fd9ee8a95d3a4eac644f29c666642, type: 3}
       propertyPath: Player
@@ -1312,7 +1312,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 535001985}
     - target: {fileID: 7412651067264848061, guid: 224fd9ee8a95d3a4eac644f29c666642, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1105988123}
+    - target: {fileID: 7412651067264848061, guid: 224fd9ee8a95d3a4eac644f29c666642, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1704743008}
+    - target: {fileID: 7412651067264848061, guid: 224fd9ee8a95d3a4eac644f29c666642, type: 3}
       propertyPath: target
+      value: 
+      objectReference: {fileID: 1704743009}
+    - target: {fileID: 7412651067264848061, guid: 224fd9ee8a95d3a4eac644f29c666642, type: 3}
+      propertyPath: playerPos
       value: 
       objectReference: {fileID: 1704743009}
     - target: {fileID: 7713387784917345899, guid: 224fd9ee8a95d3a4eac644f29c666642, type: 3}
@@ -1321,11 +1333,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7713387784917345899, guid: 224fd9ee8a95d3a4eac644f29c666642, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8033543479123268085, guid: 224fd9ee8a95d3a4eac644f29c666642, type: 3}
       propertyPath: m_Constraints
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8999242328704400055, guid: 224fd9ee8a95d3a4eac644f29c666642, type: 3}
       propertyPath: m_IsTrigger
