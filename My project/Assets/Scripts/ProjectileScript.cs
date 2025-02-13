@@ -29,7 +29,7 @@ public class ProjectileScript : MonoBehaviour
         if (Enemy.tag == "Enemy")
         {
             // If the GameObject has the same tag as specified, output this message in the console  
-            Enemy.GetComponent<EnemyScript>().changeHpBux(+Weapon.BaseDamage);
+            Enemy.GetComponent<EnemyScript>().ChangeHpBux(+Weapon.BaseDamage);
         }        
     }
 }

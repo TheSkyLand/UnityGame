@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public float BaseDamage = 50;
-    public float AttackSpeed = 1;
+    public float BaseDamage = 30;
+    public float AttackSpeed = 2;
     public PlayerScript Player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,9 +31,11 @@ public class EnemyAttack : MonoBehaviour
     }
     private IEnumerator Attackf()
     {
-        Debug.Log("worked");
-        Player.GetComponent<PlayerScript>().changeHpBux(+BaseDamage);
-        yield return new WaitForSeconds(AttackSpeed * Time.deltaTime);
-        Player.GetComponent<PlayerScript>().changeHpBux(+BaseDamage);
+        while (true)
+        {
+            Debug.Log("worked");
+            Player.GetComponent<PlayerScript>().ChangeHpBux(+BaseDamage);
+            yield return new WaitForSeconds(AttackSpeed * Time.deltaTime);
+        }
     }
 }

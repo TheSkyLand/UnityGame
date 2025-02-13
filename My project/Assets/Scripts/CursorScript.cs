@@ -1,9 +1,9 @@
-using UnityEngine;
+п»їusing UnityEngine;
 
 public class CursorScript : MonoBehaviour
 {
-    public bool isPushed; // Boolean-переменная, проверяющая, нажата ли ЛКМ
-    public GameObject cursor; // Сами объекты
+    public bool isPushed; // Boolean-РїРµСЂРµРјРµРЅРЅР°СЏ, РїСЂРѕРІРµСЂСЏСЋС‰Р°СЏ, РЅР°Р¶Р°С‚Р° Р»Рё Р›РљРњ
+    public GameObject cursor; // РЎР°РјРё РѕР±СЉРµРєС‚С‹
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,14 +14,14 @@ public class CursorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Это для того,чтобы объект следовал за мышью, а чтобы объект не оказывался в бездне мира, переводим это дело в мировые координаты
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Р­С‚Рѕ РґР»СЏ С‚РѕРіРѕ,С‡С‚РѕР±С‹ РѕР±СЉРµРєС‚ СЃР»РµРґРѕРІР°Р» Р·Р° РјС‹С€СЊСЋ, Р° С‡С‚РѕР±С‹ РѕР±СЉРµРєС‚ РЅРµ РѕРєР°Р·С‹РІР°Р»СЃСЏ РІ Р±РµР·РґРЅРµ РјРёСЂР°, РїРµСЂРµРІРѕРґРёРј СЌС‚Рѕ РґРµР»Рѕ РІ РјРёСЂРѕРІС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹
 
-        RaycastHit hit; // Луч из камеры
+        RaycastHit hit; // Р›СѓС‡ РёР· РєР°РјРµСЂС‹
         if (Physics.Raycast(ray, out hit))
         {
-              var newPos = hit.point; // Новая позиция
-              newPos.y += 0.1f; // Прибавляем к Y ( Чтобы объекты не падали за карту )
-              transform.position = newPos; // Задаем в качестве позиции newPos
+              var newPos = hit.point; // РќРѕРІР°СЏ РїРѕР·РёС†РёСЏ
+              newPos.y += 0.1f; // РџСЂРёР±Р°РІР»СЏРµРј Рє Y ( Р§С‚РѕР±С‹ РѕР±СЉРµРєС‚С‹ РЅРµ РїР°РґР°Р»Рё Р·Р° РєР°СЂС‚Сѓ )
+              transform.position = newPos; // Р—Р°РґР°РµРј РІ РєР°С‡РµСЃС‚РІРµ РїРѕР·РёС†РёРё newPos
             
         }
     }

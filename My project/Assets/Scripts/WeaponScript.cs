@@ -27,7 +27,7 @@ public class WeaponScript : MonoBehaviour
         if (Enemy.tag == "Enemy")
         {
             // If the GameObject has the same tag as specified, output this message in the console  
-            Enemy.GetComponent<EnemyScript>().changeHpBux(+BaseDamage);
+            Enemy.GetComponent<EnemyScript>().ChangeHpBux(+BaseDamage);
         }
     }
 
@@ -38,9 +38,8 @@ public class WeaponScript : MonoBehaviour
     }
     private IEnumerator Attackf()
     {
+
+        yield return new WaitForSeconds(AttackSpeed * Time.deltaTime);
         Debug.Log("worked");
-        gameObject.SetActive(true);
-        yield return new WaitForSeconds(AttackSpeed);
-        gameObject.SetActive(false);
     }
 }

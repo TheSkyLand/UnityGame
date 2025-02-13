@@ -5,14 +5,13 @@ using UnityEngine.SocialPlatforms;
 
 public class EnemyScript : MonoBehaviour
 {
-    protected float speed = 10f;
-    protected float damage; // количество урона игроку
+    public float speed; // количество урона игроку
     public float health; // количество жизней у врага
     protected GameObject player; // объект игрока
     public Transform playerPos;
 
     // Функция для движения врага (виртуальная), то есть дочерний скрипт будет изменять данный метод
-    public void changeHpBux(float i)
+    public void ChangeHpBux(float i)
     {
         health  -= i;
     }
