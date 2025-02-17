@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5277518303155312959}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: GameController
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,8 +34,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1.4179, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9041259489285549479}
   - {fileID: 3282854257711180782}
+  - {fileID: 9041259489285549479}
   m_Father: {fileID: 5884893254206136252}
   m_LocalEulerAnglesHint: {x: 0, y: 228.854, z: 0}
 --- !u!33 &5000228273667996049
@@ -152,8 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  health: 0
-  playerPos: {fileID: 0}
+  health: 1
 --- !u!1 &2470427765268592990
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +256,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -288,7 +287,7 @@ GameObject:
   - component: {fileID: 5884893254206136252}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -368,31 +367,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4396699868746397138, guid: e06a88c7c68b74345b454e65a696ac5b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8473166871708993528}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e06a88c7c68b74345b454e65a696ac5b, type: 3}
---- !u!1 &8444343175623058843 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4396699868746397138, guid: e06a88c7c68b74345b454e65a696ac5b, type: 3}
-  m_PrefabInstance: {fileID: 5202891619818475593}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8473166871708993528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8444343175623058843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c48542b9a250df34eae8514c14530a39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BaseDamage: 30
-  AttackSpeed: 2
-  Player: {fileID: 0}
 --- !u!4 &9041259489285549479 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3840835763044204014, guid: e06a88c7c68b74345b454e65a696ac5b, type: 3}

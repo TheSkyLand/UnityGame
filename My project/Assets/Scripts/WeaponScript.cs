@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,17 +8,18 @@ using static UnityEngine.GraphicsBuffer;
 public class WeaponScript : MonoBehaviour
 {
     public float BaseDamage = 1.0f;
-    public GameObject Object;
     public float AttackSpeed = 1.0f;
     public EnemyScript script;
+    private Animator anim;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        anim = gameObject.GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
     {
+        anim.Play("Idle");
     }
     void OnTriggerEnter(Collider Enemy)
     {
@@ -38,7 +39,7 @@ public class WeaponScript : MonoBehaviour
     }
     private IEnumerator Attackf()
     {
-
+        anim.Play("KatanaAttack");
         yield return new WaitForSeconds(AttackSpeed * Time.deltaTime);
         Debug.Log("worked");
     }

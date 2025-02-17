@@ -7,9 +7,6 @@ public class EnemyScript : MonoBehaviour
 {
     public float speed; // количество урона игроку
     public float health; // количество жизней у врага
-    protected GameObject player; // объект игрока
-    public Transform playerPos;
-
     // Функция для движения врага (виртуальная), то есть дочерний скрипт будет изменять данный метод
     public void ChangeHpBux(float i)
     {

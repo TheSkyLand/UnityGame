@@ -36,7 +36,7 @@ public class DetectionScript : MonoBehaviour
             var playerPos = player.transform.position;
             playerPos.y = transform.position.y;
             enemy.transform.LookAt(playerPos);
-            enemy.transform.position += enemy.transform.forward * 2f * Time.deltaTime;
+            //enemy.transform.position += enemy.transform.forward * 2f * Time.deltaTime;
             yield return null;
         }
     }
