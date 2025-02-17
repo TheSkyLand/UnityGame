@@ -1,9 +1,8 @@
- using System;
+
 using System.Collections;
-using Unity.VisualScripting;
+
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
-using static UnityEngine.GraphicsBuffer;
+
 
 public class WeaponScript : MonoBehaviour
 {

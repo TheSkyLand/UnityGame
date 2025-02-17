@@ -45,7 +45,7 @@ public class SwitchWeapon : MonoBehaviour
             {
                 case 1:
                     // Объект пистолета должен найти скрипт Gun и вызвать функцию Shoot()
-                    Main.GetComponent<WeaponScript>().Attack();
+                    Main.GetComponent<WeaponScript>().Attack(); 
                     // pistol.GetComponent<Gun>().Update();
                     break;
                 case 2:
