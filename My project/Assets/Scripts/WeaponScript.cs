@@ -18,6 +18,7 @@ public class WeaponScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
     void OnTriggerEnter(Collider Enemy)
     {
@@ -37,6 +38,7 @@ public class WeaponScript : MonoBehaviour
     }
     private IEnumerator Attackf()
     {
+        anim.Play("KatanaAttack");
         yield return new WaitForSeconds(AttackSpeed * Time.deltaTime);
         Debug.Log("worked");
     }
