@@ -13,12 +13,11 @@ public class WeaponScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        anim = gameObject.GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
     {
-        anim.Play("Idle");
     }
     void OnTriggerEnter(Collider Enemy)
     {
@@ -38,7 +37,6 @@ public class WeaponScript : MonoBehaviour
     }
     private IEnumerator Attackf()
     {
-        anim.Play("KatanaAttack");
         yield return new WaitForSeconds(AttackSpeed * Time.deltaTime);
         Debug.Log("worked");
     }

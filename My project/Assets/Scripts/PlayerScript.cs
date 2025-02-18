@@ -16,7 +16,6 @@ public class PlayerScript : MonoBehaviour
     public float MaxSpeed = 10F;
     public GameObject cursor;
     public Transform cursorPos;
-    public GameObject Player;
     public bool IsDead = false;
     public void ChangeHpBux(float i)
     {
