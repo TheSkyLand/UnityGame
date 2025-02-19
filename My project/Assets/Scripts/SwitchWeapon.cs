@@ -49,7 +49,7 @@ public class SwitchWeapon : MonoBehaviour
                     // pistol.GetComponent<Gun>().Update();
                     break;
                 case 2:
-                    Secondary.GetComponent<RangedWeapon>().Shoot();
+                    Secondary.GetComponent<WeaponScript>().Attack();
                     // avtomat.GetComponent<Gun>().Update();
                     break;
             }

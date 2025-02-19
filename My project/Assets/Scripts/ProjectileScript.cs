@@ -5,7 +5,7 @@ public class ProjectileScript : MonoBehaviour
     public EnemyScript Enemy;
     public GameObject Projectile;
     public float ProjectileSpeed = 10;
-    public RangedWeapon Weapon;
+    public WeaponScript  Weapon;
     Vector3 ProjectileDirection; // Направление снаряда
     public void setDirection(Vector3 dir)
     {
