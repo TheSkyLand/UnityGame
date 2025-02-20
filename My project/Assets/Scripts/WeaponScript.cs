@@ -26,12 +26,11 @@ public class WeaponScript : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {
+    {   
         timer += Time.deltaTime;
     }
     void OnTriggerEnter(Collider Enemy)
     {
-
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
         if (Enemy.tag == "Enemy")
         {
@@ -44,33 +43,43 @@ public class WeaponScript : MonoBehaviour
     {
         if (IsRanged == false)
         {
-            StartCoroutine(Attackf());
-            Debug.Log("Melee Attack");
+            if (timer > cooldown)
+            {
+                StartCoroutine(Attackf());
+                Debug.Log("Melee Attack");
+                timer = 0;
+            }
         }
-        else 
+        else
         {
-            StartCoroutine(Shoot());
+            if (timer > cooldown)
+            {
+                StartCoroutine(Shoot());
+                timer = 0;
+            }
         }
     }
     private IEnumerator Attackf()
     {
+        anim.speed = AttackSpeed;
         anim.Play("KatanaAttack");
-        yield return new WaitForSeconds(AttackSpeed * Time.deltaTime);
+        yield return null;
         Debug.Log("worked");
     }
     public IEnumerator Shoot()
     {
         GameObject buf = Instantiate(Projectile);
+        Destroy(buf, 2);
 
         // передаём заспавненный компонент в скрипт Bullet в функцию setDrection - определение направления полёта пули
         buf.GetComponent<ProjectileScript>().setDirection(transform.forward);
-
+        buf.transform.position = ProjectileStart.transform.position;
         // Задаём начальное положение пули на карте - начало в новом пустом объекте unity rifleStart, его положение
         // ! Важно определить объекты в unity, иначе будет ошибка
-        buf.transform.position = ProjectileStart.transform.position;
+        buf.transform.rotation = ProjectileStart.transform.rotation;
         // Положение (Угол) пули относительно положения угла наклона оружия
-        buf.transform.rotation = transform.rotation;
+        //buf.transform.rotation = transform.rotation;
         Debug.Log("Ranged Attack");
-        yield return new WaitForSeconds(AttackSpeed * Time.deltaTime);
+        yield return null;
     }
 }

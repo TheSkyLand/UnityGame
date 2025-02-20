@@ -21,7 +21,7 @@ public class DetectionScript : MonoBehaviour
     {
         if (player.tag == "GameController")
         {
-
+            Char.speed += 1;
             StartCoroutine(FollowPlayer());
             Debug.Log("collided");
         }
@@ -33,7 +33,6 @@ public class DetectionScript : MonoBehaviour
     }
     public IEnumerator FollowPlayer()
     {
-        Char.speed += 1;
         while (true)
         {
             var playerPos = player.transform.position;

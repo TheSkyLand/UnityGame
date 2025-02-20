@@ -10,6 +10,7 @@ public class EnemyScript : MonoBehaviour
     // Функция для движения врага (виртуальная), то есть дочерний скрипт будет изменять данный метод
     public void ChangeHpBux(float i)
     {
+        Debug.Log("damaged");
         health  -= i;
     }
     // Публичный метод для изменения состояния врага (жив/мертв), можем обращаться к этому методу
@@ -25,6 +26,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (health <= 0)
         {
+            
             Destroy(gameObject);
         }
     }

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    public EnemyScript Enemy;
     public GameObject Projectile;
     public float ProjectileSpeed = 10;
     public WeaponScript  Weapon;
@@ -29,7 +28,7 @@ public class ProjectileScript : MonoBehaviour
         if (Enemy.tag == "Enemy")
         {
             // If the GameObject has the same tag as specified, output this message in the console  
-            Enemy.GetComponent<EnemyScript>().ChangeHpBux(+Weapon.BaseDamage);
+            GetComponent<EnemyScript>().ChangeHpBux(+Weapon.BaseDamage);
         }        
     }
 }
