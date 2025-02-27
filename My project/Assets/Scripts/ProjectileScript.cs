@@ -1,10 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
     public GameObject Projectile;
-    public float ProjectileSpeed = 10;
-    public WeaponScript  Weapon;
+    public float ProjectileSpeed = 20;
+    public WeaponScript Weapon;
+    public EnemyScript Enemy;
     Vector3 ProjectileDirection; // Направление снаряда
     public void setDirection(Vector3 dir)
     {
@@ -22,13 +24,13 @@ public class ProjectileScript : MonoBehaviour
         transform.position += ProjectileDirection * ProjectileSpeed * Time.deltaTime;
     }
     void OnTriggerEnter(Collider Enemy)
-    {
-
+    {   
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
         if (Enemy.tag == "Enemy")
         {
             // If the GameObject has the same tag as specified, output this message in the console  
-            GetComponent<EnemyScript>().ChangeHpBux(+Weapon.BaseDamage);
-        }        
+            Enemy.GetComponent<EnemyScript>().ChangeHpBux(2);
+            Destroy(Projectile);
+        }
     }
 }
