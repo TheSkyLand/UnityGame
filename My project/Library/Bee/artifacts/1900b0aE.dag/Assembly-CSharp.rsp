@@ -401,6 +401,8 @@
 -analyzer:"D:/Matov22/gaem/6000.0.38f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"D:/Matov22/gaem/6000.0.38f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"D:/Matov22/gaem/6000.0.38f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
+"Assets/HealthBar.cs"
+"Assets/ScreenManager.cs"
 "Assets/Scripts/AttackScript.cs"
 "Assets/Scripts/CursorScript.cs"
 "Assets/Scripts/DetectionScript.cs"

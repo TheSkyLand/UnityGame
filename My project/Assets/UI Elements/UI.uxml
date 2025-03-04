@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement name="HealthBar" style="flex-grow: 1; position: absolute; height: 150px; width: 500px; top: 0; left: 0; right: 0; bottom: 0; background-image: url(&quot;project://database/Assets/l1_sprite_1.png?fileID=2800000&amp;guid=1f9f424c73979fc4993139d19fe42960&amp;type=3#l1_sprite_1&quot;);">
-        <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/l3_sprite_1.png?fileID=2800000&amp;guid=065d1070f03c39248aad3b147801165f&amp;type=3#l3_sprite_1&quot;); height: 65px; width: 498px; -unity-background-scale-mode: stretch-to-fill; background-position-y: center 0; background-position-x: center 0;" />
-    </ui:VisualElement>
+    <ui:Label text="10/10&#10;" style="position: absolute; top: 144px; left: -2px; height: 151px; width: 461px; font-size: 28px;" />
+    <ui:ProgressBar value="0" title="Attack Cooldown" style="position: absolute; top: 782px; left: 394px; height: 32px; width: 477px;" />
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; height: 91px; width: 1334px; top: 860px; left: -2px; background-image: none; background-position-x: center 0; -unity-background-scale-mode: stretch-to-fill;" />
+    <ui:ProgressBar value="0" title="HP" style="position: absolute; top: 4px; left: -2px; height: 32px; width: 477px;" />
 </ui:UXML>
