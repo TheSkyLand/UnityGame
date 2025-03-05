@@ -2,21 +2,23 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class WeaponScript : MonoBehaviour
 {
     public float BaseDamage = 1.0f;
-    public float AttackSpeed = 1.0f;
+    public float AttackSpeed = 2.5f;
     public EnemyScript script;
     private Animator anim;
-
+    public Text Text;
+    public bool HasAmmo = false;
 
     //
     public bool IsRanged;
     public int maxAmmo = 100; // количество дополнительных патронов
     public int maxAmmoInClip = 10; // емкость магазина
-    public int gunAmmo = 0; // количество патронов в магазине
+    public int gunAmmo = 10; // количество патронов в магазине
     public bool canShoot = true;
 
 
@@ -31,6 +33,10 @@ public class WeaponScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (HasAmmo || IsRanged)
+        {
+            Text.text = "AMMO: " + gunAmmo.ToString() + "/" + maxAmmoInClip.ToString();
+        } 
     }
     void OnTriggerEnter(Collider Enemy)
     {
@@ -107,29 +113,33 @@ public class WeaponScript : MonoBehaviour
     }
     private IEnumerator Attackf()
     {
-        anim.speed = AttackSpeed;
+        yield return new WaitForSeconds(2.5f + -AttackSpeed);
+        anim.speed = 2.5f + -AttackSpeed;
         anim.Play("KatanaAttack");
-        yield return null;
-        Debug.Log("worked");
+        
     }
     public IEnumerator Shoot()
     {
-        gunAmmo--;
-        GameObject buf = Instantiate(Projectile);
-        Destroy(buf, 2);
-        // передаём заспавненный компонент в скрипт Bullet в функцию setDrection - определение направления полёта пули
-        buf.GetComponent<ProjectileScript>().setDirection(transform.forward);
-        buf.transform.position = ProjectileStart.transform.position;
-        // Задаём начальное положение пули на карте - начало в новом пустом объекте unity rifleStart, его положение
-        // ! Важно определить объекты в unity, иначе будет ошибка
-        buf.transform.rotation = ProjectileStart.transform.rotation;
-        // Положение (Угол) пули относительно положения угла наклона оружия
-        //buf.transform.rotation = transform.rotation;
-        Debug.Log("Ranged Attack");
-        yield return new WaitForSeconds(0.1f);
-        // разрешаем стрелять
-        canShoot = true;
-        // выходим с сопрограммы
-        yield break;
+        if (gunAmmo > 0)
+        {
+            gunAmmo--;
+            GameObject buf = Instantiate(Projectile);
+            Destroy(buf, 2);
+            // передаём заспавненный компонент в скрипт Bullet в функцию setDrection - определение направления полёта пули
+            buf.GetComponent<ProjectileScript>().setDirection(transform.forward);
+            buf.transform.position = ProjectileStart.transform.position;
+            // Задаём начальное положение пули на карте - начало в новом пустом объекте unity rifleStart, его положение
+            // ! Важно определить объекты в unity, иначе будет ошибка
+            buf.transform.rotation = ProjectileStart.transform.rotation;
+            // Положение (Угол) пули относительно положения угла наклона оружия
+            //buf.transform.rotation = transform.rotation;
+            Debug.Log("Ranged Attack");
+            yield return new WaitForSeconds(0.1f);
+            // разрешаем стрелять
+            canShoot = true;
+            // выходим с сопрограммы
+            yield break;
+        }
+
     }
 }

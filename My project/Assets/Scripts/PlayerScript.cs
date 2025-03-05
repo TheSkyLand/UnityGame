@@ -5,6 +5,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.UI;
+using UnityEditor;
+
 
 public class PlayerScript : MonoBehaviour
 {
@@ -17,6 +20,10 @@ public class PlayerScript : MonoBehaviour
     public GameObject cursor;
     public Transform cursorPos;
     public bool IsDead = false;
+    public Text Text;
+    public GameObject Inventory;
+
+
     public void ChangeHpBux(float i)
     {
 
@@ -25,11 +32,34 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.HasKey("playerX"))
+        {
+            // Локально определилои координаты сохранения
+            float x = PlayerPrefs.GetFloat("playerX");
+            float y = PlayerPrefs.GetFloat("playerY");
+            float z = PlayerPrefs.GetFloat("playerZ");
+
+            // телепортировали игрока на нужное место
+            transform.position = new Vector3(x, y, z);
+        }                
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Debug.Log("TEST");
+            Inventory.SetActive(true);
+        }
+        else
+        {
+            Inventory.SetActive(false);
+        }
+
+
+        Text.text = "HP: " + PlayerHealth.ToString() + "/" + MaxPlayerHealth.ToString();
+
         if (Input.GetKey(KeyCode.W))
         {
             transform.position += transform.forward * PlayerSpeed * Time.deltaTime;
