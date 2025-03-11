@@ -2,8 +2,7 @@
 
 public class PickUpScript : MonoBehaviour
 {
-    [SerializeField] GameObject Ranged;
-    [SerializeField] GameObject Melee;
+    public SwitchWeapon Access;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,19 +16,25 @@ public class PickUpScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "RangedWeapon")
+        if (other.tag == "ItemMeleeWeapon")
         {
             // Удали этот объект
             // print("Взял");
             Destroy(other.gameObject);
-            Ranged.SetActive(true);
+            Access.HasWeapon = true;
+
         }
-        if (other.name == "MeleeWeapon")
+        if (other.tag == "ItemRangedWeapon")
         {
             // Удали этот объект
             // print("Взял");
             Destroy(other.gameObject);
-            Ranged.SetActive(true);
+            Access.HasWeapon = true;
+        }
+        if (other.tag == "Item")
+        {
+
+
         }
     }
 }

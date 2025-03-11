@@ -1,34 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Animations;
-using static UnityEngine.GraphicsBuffer;
-using UnityEngine.UI;
-using UnityEditor;
 
 
 public class PlayerScript : MonoBehaviour
 {
-    public float MaxPlayerHealth = 1000F;
-    public float PlayerHealth = 100F;
     public float PlayerSpeed = 5.0F;
     public float horizontalSpeed = 1.0F;
     public float verticalSpeed = 1.0F;
     public float MaxSpeed = 10F;
     public GameObject cursor;
     public Transform cursorPos;
-    public bool IsDead = false;
-    public Text Text;
     public GameObject Inventory;
 
 
-    public void ChangeHpBux(float i)
-    {
 
-        PlayerHealth -= i;
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -56,9 +40,6 @@ public class PlayerScript : MonoBehaviour
         {
             Inventory.SetActive(false);
         }
-
-
-        Text.text = "HP: " + PlayerHealth.ToString() + "/" + MaxPlayerHealth.ToString();
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -103,11 +84,5 @@ public class PlayerScript : MonoBehaviour
         var playerPos = cursor.transform.position;
         playerPos.y = transform.position.y;
         transform.LookAt(playerPos);
-
-        if (PlayerHealth <= 0)
-        {
-            Destroy(gameObject);
-            IsDead = true;
-        }
     }
 }

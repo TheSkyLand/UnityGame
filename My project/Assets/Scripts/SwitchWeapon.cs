@@ -4,6 +4,7 @@ public class SwitchWeapon : MonoBehaviour
 {
     [SerializeField] GameObject Main;
     [SerializeField] GameObject Secondary;
+    public bool HasWeapon = false;
     int weapon = 0;
     public void ChooseWeapon(string weapon)
     {
@@ -29,12 +30,12 @@ public class SwitchWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
+        if ((Input.GetKey(KeyCode.Alpha1)) && HasWeapon)
         {
             ChooseWeapon("Main");
             weapon = 1;
         }
-        if (Input.GetKey(KeyCode.Alpha2))
+        if ((Input.GetKey(KeyCode.Alpha2)) && HasWeapon)
         {
             ChooseWeapon("Secondary");
             weapon = 2;

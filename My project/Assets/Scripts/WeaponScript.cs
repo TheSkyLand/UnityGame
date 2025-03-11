@@ -7,12 +7,15 @@ using UnityEngine.UI;
 
 public class WeaponScript : MonoBehaviour
 {
-    public float BaseDamage = 1.0f;
-    public float AttackSpeed = 2.5f;
+    public float BaseDamage;
+    public float AttackSpeed;
     public EnemyScript script;
     private Animator anim;
     public Text Text;
     public bool HasAmmo = false;
+
+
+
 
     //
     public bool IsRanged;
@@ -113,10 +116,10 @@ public class WeaponScript : MonoBehaviour
     }
     private IEnumerator Attackf()
     {
-        yield return new WaitForSeconds(2.5f + -AttackSpeed);
+        // yield return new WaitForSeconds(2.5f + -AttackSpeed);
         anim.speed = 2.5f + -AttackSpeed;
         anim.Play("KatanaAttack");
-        
+        yield return null;
     }
     public IEnumerator Shoot()
     {

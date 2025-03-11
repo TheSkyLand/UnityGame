@@ -24,15 +24,15 @@ public class AttackScript : MonoBehaviour
         {
             // If the GameObject has the same tag as specified, output this message in the console  
             anim.Play("KatanaAttack");
-            Player.GetComponent<PlayerScript>().ChangeHpBux(+attacker.BaseDamage);
-            var script = pursuer.GetComponent<DetectionScript>();
+            GetComponent<PlayerHp>().ChangeHpBux(+attacker.BaseDamage);
+            var script = GetComponent<DetectionScript>();
             script.FollowPlayer();
         }
     }
     private void OnTriggerExit(Collider Player)
     {
-        var script = pursuer.GetComponent<DetectionScript>();
-        script.FollowPlayer();
+        var script = GetComponent<DetectionScript>();
+        script.StopCoroutine(script.FollowPlayer());
     }
 }
 

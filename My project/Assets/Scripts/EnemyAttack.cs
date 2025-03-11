@@ -10,8 +10,6 @@ public class EnemyAttack : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-        Player.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -33,7 +31,7 @@ public class EnemyAttack : MonoBehaviour
         while (true)
         {
             Debug.Log("worked");
-            Player.GetComponent<PlayerScript>().ChangeHpBux(+BaseDamage);
+            GetComponent<PlayerHp>().ChangeHpBux(+BaseDamage);
             yield return new WaitForSeconds(AttackSpeed * Time.deltaTime);
         }
     }

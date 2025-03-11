@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
-  - Weapon
+  - ItemRangedWeapon
+  - ItemMeleeWeapon
+  - Item
   layers:
   - Default
   - TransparentFX

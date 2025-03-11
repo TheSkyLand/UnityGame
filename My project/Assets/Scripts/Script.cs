@@ -13,9 +13,13 @@ public class Script : MonoBehaviour
         offset = transform.position - player.transform.position;
     }
 
-    void LateUpdate () 
-    {        
+    void LateUpdate()
+    {
         transform.position = player.transform.position + offset;
+       /* if (Input.mouseScrollDelta.y > 0)
+        {
+            gameObject.transform.position.y = Input.mouseScrollDelta.y;
+        } */
         if (player.IsDestroyed())
         {
             offset = transform.position;
