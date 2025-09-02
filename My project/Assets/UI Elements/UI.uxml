@@ -1,6 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:Label text="10/10&#10;" style="position: absolute; top: 144px; left: -2px; height: 151px; width: 461px; font-size: 28px;" />
-    <ui:ProgressBar value="0" title="Attack Cooldown" style="position: absolute; top: 782px; left: 394px; height: 32px; width: 477px;" />
-    <ui:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; height: 91px; width: 1334px; top: 860px; left: -2px; background-image: none; background-position-x: center 0; -unity-background-scale-mode: stretch-to-fill;" />
-    <ui:ProgressBar value="0" title="HP" style="position: absolute; top: 4px; left: -2px; height: 32px; width: 477px;" />
-</ui:UXML>
